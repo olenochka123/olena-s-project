@@ -99,23 +99,15 @@ void SortArray(Array  arr[])
 
 void CalcArray(Array arr[])
 {
-    double dArr[n];
-       int i, j;
-       int min;
-       int min_index_1, min_index_2;
-    
-       min = dArr[0][0];
-    
-       for ( i = 0; i < 5; i++)
-           for ( j = 1; j < 5; j++)
-               if(min > dArr[i][j])
-               {
-                   min = dArr[i][j];
-                   min_index_1 = i;
-                   min_index_2 = j;
-               }
-               std::cout <<"Min element " << min << std::endl;
-               std::cout << "Index " << "[" << min_index_1 << "][" << min_index_2 << "]" << std::endl;
+    int max = arr[4].dArr[0];
+
+    for (int i = 0; i < 4; i++) {
+        cout << arr[4].dArr[i] << endl;
+        if(max<arr[4].dArr[i]){
+            max = arr[4].dArr[i];
+        }
+    }
+    cout <<"max: "<< max << endl;
     }
 
 
