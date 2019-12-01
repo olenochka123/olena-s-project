@@ -1,8 +1,8 @@
 //
 //  main.cpp
-//  Lab5
+//  NewLab5
 //
-//  Created by Олена Фітьо on 11/4/19.
+//  Created by Олена Фітьо on 12/1/19.
 //  Copyright © 2019 Олена Фітьо. All rights reserved.
 //
 
@@ -15,7 +15,7 @@ using namespace std;
 class Array
 {
 private:
-    double dArr[n];
+    double dArray[n];
 public:
     friend void InputArray(Array array[]);
     friend void OutputArray(Array array[]);
@@ -28,7 +28,7 @@ void InputArray(Array  array[])
         for (int j = 0; j < n; ++j)
         {
             cout << "[" << i + 1 << "][" << j + 1  << "] = ";
-            cin >> array[i].dArr[j];
+            cin >> array[i].dArray[j];
         }
 }
 void OutputArray(Array  array[])
@@ -37,14 +37,14 @@ void OutputArray(Array  array[])
     {
         for (int j = 0; j < n; ++j)
         {
-            cout << array[j].dArr[i] << "\t";
+            cout << array[j].dArray[i] << "\t";
         }
         cout << endl;
     }
 }
 
 
-void SortArray(Array  arr[])
+void SortArray(Array  array[])
 {
     for (int i = 0; i < n; ++i)
     {
@@ -62,31 +62,31 @@ void SortArray(Array  arr[])
                 
                 while (LeftBorder + LeftBlockIterator < MidBorder && MidBorder + RightBlockIterator < RightBorder)
                 {
-                    if (arr[LeftBorder + LeftBlockIterator].dArr[i] > arr[MidBorder + RightBlockIterator].dArr[i])
+                    if (array[LeftBorder + LeftBlockIterator].dArray[i] > array[MidBorder + RightBlockIterator].dArray[i])
                     {
-                        SortedBlock[LeftBlockIterator + RightBlockIterator] = arr[LeftBorder + LeftBlockIterator].dArr[i];
+                        SortedBlock[LeftBlockIterator + RightBlockIterator] = array[LeftBorder + LeftBlockIterator].dArray[i];
                         LeftBlockIterator++;
                     }
                     else
                     {
-                        SortedBlock[LeftBlockIterator + RightBlockIterator] = arr[MidBorder + RightBlockIterator].dArr[i];
+                        SortedBlock[LeftBlockIterator + RightBlockIterator] = array[MidBorder + RightBlockIterator].dArray[i];
                         RightBlockIterator++;
                     }
                 }
                 while (LeftBorder + LeftBlockIterator < MidBorder)
                 {
-                    SortedBlock[LeftBlockIterator + RightBlockIterator] = arr[LeftBorder + LeftBlockIterator].dArr[i];
+                    SortedBlock[LeftBlockIterator + RightBlockIterator] = array[LeftBorder + LeftBlockIterator].dArray[i];
                     LeftBlockIterator++;
                 }
                 while (MidBorder + RightBlockIterator < RightBorder)
                 {
-                    SortedBlock[LeftBlockIterator + RightBlockIterator] = arr[MidBorder + RightBlockIterator].dArr[i];
+                    SortedBlock[LeftBlockIterator + RightBlockIterator] = array[MidBorder + RightBlockIterator].dArray[i];
                     RightBlockIterator++;
                 }
                 
                 for (int MergeIterator = 0; MergeIterator < LeftBlockIterator + RightBlockIterator; MergeIterator++)
                 {
-                    arr[LeftBorder + MergeIterator].dArr[i] = SortedBlock[MergeIterator];
+                    array[LeftBorder + MergeIterator].dArray[i] = SortedBlock[MergeIterator];
                 }
                 delete[] SortedBlock;
                 
@@ -97,14 +97,14 @@ void SortArray(Array  arr[])
 }
 
 
-void CalcArray(Array arr[])
+void CalcArray(Array array[])
 {
-    int max = arr[4].dArr[0];
+    int max = array[4].dArray[0];
 
     for (int i = 0; i < 4; i++) {
-        cout << arr[4].dArr[i] << endl;
-        if(max<arr[4].dArr[i]){
-            max = arr[4].dArr[i];
+        cout << array[4].dArray[i] << endl;
+        if(max<array[4].dArray[i]){
+            max = array[4].dArray[i];
         }
     }
     cout <<"max: "<< max << endl;
@@ -114,14 +114,15 @@ void CalcArray(Array arr[])
 int main()
 {
     cout << "Enter elements of matrix:\n" << endl;
-    Array  arr[n];
-    InputArray(arr);
+    Array  array[n];
+    InputArray(array);
     cout << "\nYour matrix:\n" << endl;
-    OutputArray(arr);
-    SortArray(arr);
+    OutputArray(array);
+    SortArray(array);
     cout << "\nSorted matrix:\n" << endl;
-    OutputArray(arr);
+    OutputArray(array);
     cout << "\nCalculations:\n" << endl;
-    CalcArray(arr);
+    CalcArray(array);
 }
+
 
